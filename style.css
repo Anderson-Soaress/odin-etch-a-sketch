@@ -5,12 +5,18 @@
 
 .container{
     display: flex;
-    justify-content: center;
-    margin-top: 25px;
+    width: 600px;
+    height: 600px;
+    padding: 0px;
+}
+
+.containerLine{
+    display: flex;
+    flex-direction:column;
+    flex :1;
 }
 
 .lineItem{
-    border : 2px solid black;
-    height: 20px;
-    width: 20px;
+    border : 1px solid black;
+    flex : 1;
 }
