@@ -1,41 +1,22 @@
 function game(){
-    const container = document.querySelector(".flexContainer");
-    let containerLine;
-    let lineItem;
-
-    let gradeSize = 16;
-    
-    let grade = document.createElement("div")
-    grade.classList.add("grade");
-    container.appendChild(grade);
-    for(let line = 1; line <= gradeSize; line++){
-        containerLine = document.createElement("div");
-        containerLine.classList.add("containerLine");
-        grade.append(containerLine);
-
-        for(let item = 1; item <= gradeSize; item++){
-            lineItem = document.createElement("div");
-            lineItem.classList.add("lineItem");
-            containerLine.append(lineItem);
-        }
-    } 
-
+    let gridSize = 16;
     let color = "black";
+
+    let grid = createGrid(gridSize);
+    colorGrid(color);
 
     let inputColor = document.querySelector("#inputColor");
     inputColor.addEventListener("change", () => {
         color = inputColor.value;
+        colorGrid(color);
     })
 
     const eraserButton = document.querySelector(".eraserButton");
     eraserButton.addEventListener("click", () => {
-        color = "white";
+        color = "#ffffff";
+        inputColor.value = color;
+        colorGrid(color);
     })
-
-    const containerItens = document.querySelectorAll(".lineItem");
-    containerItens.forEach(lineItem => lineItem.addEventListener("mouseover", () => {
-        lineItem.style.backgroundColor = color;
-    }))
 
     const clearButton = document.querySelector(".clearButton");
     clearButton.addEventListener("click", () => {
@@ -62,38 +43,56 @@ function game(){
     const resizeButton = document.querySelector(".resizeButton");
     resizeButton.addEventListener("click" , () => {
 
-        gradeSize = window.prompt("Type the new grade: (max:100)")
+        grid = resizeGrid(gridSize, grid)
+        colorGrid(color);
 
-        let validAnswer = false;
-        while(!validAnswer){
-            if(gradeSize <= 100 && gradeSize >= 16){
-                validAnswer = true;
-            } else {
-                gradeSize = window.prompt("Please, type a valid answer: (min:16 max:100)")
-            }
-        }
-
-        container.removeChild(grade);
-
-        grade = document.createElement("div")
-        grade.classList.add("grade");
-        container.appendChild(grade);
-        for(let line = 1; line <= gradeSize; line++){
-            containerLine = document.createElement("div");
-            containerLine.classList.add("containerLine");
-            grade.append(containerLine);
-    
-            for(let item = 1; item <= gradeSize; item++){
-                lineItem = document.createElement("div");
-                lineItem.classList.add("lineItem");
-                containerLine.append(lineItem);
-            }
-        } 
-        const containerItens = document.querySelectorAll(".lineItem");
-        containerItens.forEach(lineItem => lineItem.addEventListener("mouseover", () => {
-        lineItem.style.backgroundColor = color;
-    }))
     })
+}
+
+const container = document.querySelector(".flexContainer");
+
+function createGrid(gridSize){
+    let containerLine;
+    let lineItem;
+    
+    grid = document.createElement("div")
+    grid.classList.add("grid");
+    container.appendChild(grid);
+    for(let line = 1; line <= gridSize; line++){
+        containerLine = document.createElement("div");
+        containerLine.classList.add("containerLine");
+        grid.append(containerLine);
+
+        for(let item = 1; item <= gridSize; item++){
+            lineItem = document.createElement("div");
+            lineItem.classList.add("lineItem");
+            containerLine.append(lineItem);
+        }
+    }
+    return grid;
+}
+
+function resizeGrid(gridSize, grid){
+    gridSize = window.prompt("Type the new grid: (max:100)");
+
+    let validAnswer = false;
+    while(!validAnswer){
+        if(gridSize <= 100 && gridSize >= 16){
+            validAnswer = true;
+        } else {
+            gridSize = window.prompt("Please, type a valid answer: (min:16 max:100)")
+        }
+    }
+    container.removeChild(grid);
+    grid = createGrid(gridSize);
+    return grid;
+}
+
+function colorGrid(color){
+    const containerItens = document.querySelectorAll(".lineItem");
+    containerItens.forEach(lineItem => lineItem.addEventListener("mouseover", () => {
+    lineItem.style.backgroundColor = color;
+    }))
 }
 
 game();
