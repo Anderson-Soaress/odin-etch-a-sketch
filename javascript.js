@@ -25,6 +25,13 @@ function game(){
         lineItem.style.backgroundColor = "black";
     }))
 
+    const clearButton = document.querySelector(".clearButton");
+    clearButton.addEventListener("click", () => {
+        const containerItens = document.querySelectorAll(".lineItem");
+        containerItens.forEach(lineItem => lineItem.style.backgroundColor = "white")
+
+    })
+
     const resizeButton = document.querySelector(".resizeButton");
     resizeButton.addEventListener("click" , () => {
 

@@ -40,3 +40,27 @@
     border : 1px solid black;
     flex : 1;
 }
+
+.buttons{
+    order :3;
+}
+
+.container button{
+    margin: 0px 80px;
+    padding: 20px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 7px #999;
+    color: black;
+}
+
+.container button:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+.container button:active{
+    background-color: rgb(221, 221, 221);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
