@@ -11,6 +11,12 @@ function game(){
             containerLine.append(lineItem);
         }
     } 
+
+    const containerItens = document.querySelectorAll(".lineItem");
+    containerItens.forEach(lineItem => lineItem.addEventListener("mouseover", () => {
+        lineItem.style.backgroundColor = "black";
+    }))
+    
 }
 
 game();
