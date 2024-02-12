@@ -12,15 +12,21 @@
     <div class="header">
         <h1>Etch a sketch</h1>
     </div>
-    <div class="container">
+    <div class="section">
         <h2>Draw!!</h2>
-        <!-- Javascript DOM is here -->
-        <div class="buttons">
-            <button class="clearButton">Clear</button>
-            <button class="resizeButton">Resize</button>
-        </div>
-        
+        <div class="flexContainer">
+            <!-- Javascript DOM is here -->
+            <div class="buttons">
+                <div><input type="color" id="inputColor"> </div>
+                <button class="eraserButton">Eraser</button>
+                <button class="clearButton">Clear</button>
+                <button class="toggleLineButton">Toggle line</button>
+                <button class="resizeButton">Resize</button>
+            </div>
+            <div class="centralizer"></div> <!-- Just to centralize the grade(probaly not the best way)-->
     </div>
+    </div>
+    
     <div class="footer">
         <p>Copyright © Anderson Soares 2024</p>
     </div>
