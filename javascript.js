@@ -21,7 +21,7 @@ function game(){
     } 
 
     let color = "black";
-    
+
     let inputColor = document.querySelector("#inputColor");
     inputColor.addEventListener("change", () => {
         color = inputColor.value;
@@ -91,7 +91,7 @@ function game(){
         } 
         const containerItens = document.querySelectorAll(".lineItem");
         containerItens.forEach(lineItem => lineItem.addEventListener("mouseover", () => {
-        lineItem.style.backgroundColor = "black";
+        lineItem.style.backgroundColor = color;
     }))
     })
 }
