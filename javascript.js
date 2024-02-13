@@ -40,9 +40,8 @@ function game(){
         }
     })
     
-    const resizeButton = document.querySelector(".resizeButton");
+    const resizeButton = document.querySelector("#resizeButton");
     resizeButton.addEventListener("click" , () => {
-
         grid = resizeGrid(gridSize, grid)
         colorGrid(color);
 
@@ -73,26 +72,25 @@ function createGrid(gridSize){
 }
 
 function resizeGrid(gridSize, grid){
-    gridSize = window.prompt("Type the new grid: (max:100)");
+    let inputResize = document.querySelector("#inputResize");
+    gridSize = inputResize.value;
 
-    let validAnswer = false;
-    while(!validAnswer){
-        if(gridSize <= 100 && gridSize >= 16){
-            validAnswer = true;
-        } else {
-            gridSize = window.prompt("Please, type a valid answer: (min:16 max:100)")
-        }
+    if(gridSize <= 100 && gridSize >= 1){
+        container.removeChild(grid);
+        grid = createGrid(gridSize);
+        inputResize.value = "";
+        return grid;
+    } else {
+        inputResize.value = "";
+        return grid;
     }
-    container.removeChild(grid);
-    grid = createGrid(gridSize);
-    return grid;
 }
 
 function colorGrid(color){
     const containerItens = document.querySelectorAll(".lineItem");
     containerItens.forEach(lineItem => lineItem.addEventListener("mouseover", () => {
-    lineItem.style.backgroundColor = color;
-    }))
+            lineItem.style.backgroundColor = color;
+            }));
 }
 
 game();

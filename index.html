@@ -16,14 +16,18 @@
         <h2>Draw!!</h2>
         <div class="flexContainer">
             <!-- Javascript DOM is here -->
-            <div class="buttons">
-                <div><input type="color" id="inputColor"> </div>
+            <div class="leftButtons">
+                <input type="color" id="inputColor">
                 <button class="eraserButton">Eraser</button>
                 <button class="clearButton">Clear</button>
-                <button class="toggleLineButton">Toggle line</button>
-                <button class="resizeButton">Resize</button>
             </div>
-            <div class="centralizer"></div> <!-- Just to centralize the grade(probaly not the best way)-->
+            <div class="rightButtons">
+                <button class="toggleLineButton">Toggle line</button>
+                <div class="resizeDiv">
+                    <input type="number" id="inputResize" min="1" max ="100" placeholder="Max: 100">
+                    <button id="resizeButton">Resize</button>
+                </div> 
+            </div> 
     </div>
     </div>
     
