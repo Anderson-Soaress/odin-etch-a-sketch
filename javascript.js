@@ -79,9 +79,11 @@ function resizeGrid(gridSize, grid){
         container.removeChild(grid);
         grid = createGrid(gridSize);
         inputResize.value = "";
+        inputResize.placeholder = `Current: ${gridSize}`;
         return grid;
     } else {
         inputResize.value = "";
+        inputResize.placeholder = `Max value: 100`;
         return grid;
     }
 }
