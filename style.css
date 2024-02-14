@@ -74,7 +74,7 @@
 
 #inputResize{
     color: black;
-    width: 147px;
+    width: 197px;
     height: 50px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -83,8 +83,8 @@
 }
 
 #inputColor{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
 
 }
 
@@ -96,7 +96,7 @@
     border-radius: 10px;
     box-shadow: 0 7px #999;
     color: black;
-    width: 150px;
+    width: 200px;
 }
 
 .flexContainer button:hover{
