@@ -26,11 +26,6 @@
     gap:50px;
 }
 
-.centralizer{
-    order:3;
-    width: 310px;
-}
-
 .grid{
     display: flex;
     width: 600px;

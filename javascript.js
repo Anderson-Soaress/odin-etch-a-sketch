@@ -1,6 +1,10 @@
+const container = document.querySelector(".flexContainer");
+
+
 function game(){
     let gridSize = 16;
     let color = "black";
+    clicked = false;
 
     let grid = createGrid(gridSize);
     colorGrid(color);
@@ -22,7 +26,6 @@ function game(){
     clearButton.addEventListener("click", () => {
         const containerItens = document.querySelectorAll(".lineItem");
         containerItens.forEach(lineItem => lineItem.style.backgroundColor = "white");
-
     })
 
     let lineOn = true;
@@ -44,11 +47,17 @@ function game(){
     resizeButton.addEventListener("click" , () => {
         grid = resizeGrid(gridSize, grid)
         colorGrid(color);
-
     })
-}
 
-const container = document.querySelector(".flexContainer");
+    const rainbowButton = document.querySelector(".rainbowButton");
+    rainbowButton.addEventListener("click" , () => {
+        const rainbow = "rainbow"
+        colorGrid(color, rainbow);
+    
+    })
+
+
+}
 
 function createGrid(gridSize){
     let containerLine;
@@ -88,11 +97,28 @@ function resizeGrid(gridSize, grid){
     }
 }
 
-function colorGrid(color){
-    const containerItens = document.querySelectorAll(".lineItem");
-    containerItens.forEach(lineItem => lineItem.addEventListener("mouseover", () => {
+function randomColor(){
+    let R = Math.floor(Math.random() * 251);
+    let G = Math.floor(Math.random() * 251);
+    let B = Math.floor(Math.random() * 251);
+
+    return `rgb(${R}, ${G}, ${B})` 
+}
+
+function colorGrid(color, teste){
+    const containerItens = document.querySelectorAll(".lineItem");  
+    
+    if(teste == "rainbow"){
+        containerItens.forEach(lineItem => lineItem.addEventListener("mouseover", () => {  
+            color = randomColor();
             lineItem.style.backgroundColor = color;
-            }));
+        }))
+    } else {
+        containerItens.forEach(lineItem => lineItem.addEventListener("mouseover", () => {  
+            lineItem.style.backgroundColor = color;
+        }))
+    }
+    
 }
 
 game();
